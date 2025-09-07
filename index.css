@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #0B2434;
+    padding: 30px 15px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Karla, sans-serif;
+
+}
+
+div#root
+{
+    height: 100%;
+    width: 100%;
+    max-width: 400px;
+    max-height: 400px;
+}
+
+main
+{
+    background-color:#F5F5F5;
+    border-radius: 6px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 60px;
+}
+.dice_container
+{
+display: grid;
+grid-template-columns: repeat(5,1fr);
+grid-gap: 20px;
+}
+
+
+button
+{
+cursor: pointer;
+font-family: Karla, sans-serif;
+}
+.die
+{
+background-color: white;
+border-radius: 10px;
+border: none;
+box-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+height: 50px;
+width: 50px;
+font-size: 1.75 rem;
+font-weight: bold;
+
+}
+
+.roll_dice_button
+{
+background-color: #5035FF;
+color: white;
+font-size: 1.2 rem;
+font-weight: bold;
+width: 100px;
+height: 50px;
+border: none;
+border-radius: 6px;
+box-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+}
+
+.held
+{
+    background-color: #59E391;
+}
