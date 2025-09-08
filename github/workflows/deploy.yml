@@ -3,31 +3,31 @@ name: Deploy React App to GitHub Pages
 on:
   push:
     branches:
-      - main  # Change if your default branch is 'master'
+      - main
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout the repo
+      # Checkout repo
       - uses: actions/checkout@v3
 
-      # 2️⃣ Setup Node.js
+      # Setup Node.js
       - uses: actions/setup-node@v3
         with:
           node-version: 20
 
-      # 3️⃣ Install dependencies
+      # Install dependencies
       - run: npm install
 
-      # 4️⃣ Build the app
+      # Build app
       - run: npm run build
 
-      # 5️⃣ Deploy to GitHub Pages
+      # Deploy to GitHub Pages
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages       # Target branch
-          folder: dist           # Folder to deploy
-          clean: true            # Remove old files
+          branch: gh-pages      # Target branch
+          folder: dist          # Folder to deploy
+          clean: true           # Remove old files
