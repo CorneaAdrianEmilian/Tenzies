@@ -25,6 +25,7 @@ export default function App()
     }
 
     const [dice,setDice] = React.useState(() => generateAllNewDice())
+    const gameWon = dice.every(die => die.isHeld) && dice.every(die => die.value === dice[0].value);
 
     const diceList=dice.map(dieObj => <Die 
         key={dieObj.id} 
@@ -41,6 +42,9 @@ export default function App()
 
     React.useEffect(()=>{
 
+        if(gameWon){
+            return
+        }
         const interval = setInterval(() => {
         setSeconds(prevSeconds => 
             {
@@ -55,7 +59,7 @@ export default function App()
 
         return () => clearInterval(interval);
 
-    },[])
+    },[gameWon])
 
     function rollDice()
     {
@@ -87,9 +91,10 @@ export default function App()
     {
     setDice(generateAllNewDice())
     setCount(0);
+    setMinutes(0);
+    setSeconds(0);
     }
 
-    const gameWon = dice.every(die => die.isHeld) && dice.every(die => die.value === dice[0].value);
 
     const focusNewGameBtn = React.useRef(null);
 
